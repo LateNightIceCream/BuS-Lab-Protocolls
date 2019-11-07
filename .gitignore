@@ -1,0 +1,11 @@
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.blg
+*.bbl
+*.synctex.gz
+*.ods
+*.el
+*Versuch*
+logo.jpg
