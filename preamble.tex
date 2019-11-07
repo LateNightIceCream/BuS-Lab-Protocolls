@@ -13,13 +13,15 @@
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usepackage[many]{tcolorbox}
-\usepackage{graphicx}
+\usepackage{graphicx,import}
 \graphicspath{ {./graphics/} }
 \usepackage{pdfpages}
 \usepackage{dashrule}
 \usepackage{float}
 \usepackage{siunitx}
 \usepackage{booktabs}
+\usepackage{transparent}
+\usepackage{svg}
 \usepackage[version=4]{mhchem}
 
 %%% DOCUMENT GEOMETRY
@@ -113,4 +115,8 @@
 	
 }
 
+\newcommand{\inklude}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./graphics/}{#1.pdf_tex}
+}
 % END OF PREAMBLE
