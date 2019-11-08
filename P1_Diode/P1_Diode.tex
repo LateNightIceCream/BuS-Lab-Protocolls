@@ -17,7 +17,7 @@
 % 1.2
 \subsection{Aufbau und Wirkungsweise eines pn-Übergangs}
 \begin{center}
-  \includegraphics[width=\textwidth]{pn}
+  \includegraphics[width=\textwidth]{1_1/pn}
 \end{center}
 
 \noindent Dotiert man einen Halbleiterkristall (z.B. \ce{Si} oder \ce{Ge}) mit
@@ -40,19 +40,106 @@ Fremdatomen, wird die elektrische Leitfähigkeit des Halbleiters beeinflusst.
 \end{itemize}
 
 Die Elektronenkonzentration im n-Leiter ist somit höher als die im p-Leiter.
-Bringt man unterschiedlich dotierte Halbleiter in Kontakt, kommt es durch Diffusion zum Übergang von (höher-energetischen) Elektronen im Leitungsband des n-Leiters in das (nieder-energetische) Valenzband des p-Leiters. Im p-Leiter werden dann die Elektronenfehlstellen gefüllt; Im n-Leiter werden Fehlstellen von den Elektronen zurückgelassen. Die Diffusion erfolgt bis der Konzentrationsunterschied beider Halbleiter ausgeglichen ist und die Elektronenkonfigurationen der Kristalle 
+Bringt man unterschiedlich dotierte Halbleiter in Kontakt, kommt es durch
+Diffusion zum Übergang von (höher-energetischen) Elektronen im Leitungsband des
+n-Leiters in das (nieder-energetische) Valenzband des p-Leiters. Im p-Leiter
+werden dann die Elektronenfehlstellen gefüllt und es entstehen negative Ionen;
+Im n-Leiter werden durch die Elektronenwanderung Fehlstellen
+von den Elektronen zurückgelassen, wodurch sich dort positive Ionen bilden. Die
+Diffusion findet so lange statt, bis die Ladung bzw. das elektrische Feld der gebildeten Ionen einem weiteren
+Elektronenübergang vollständig entgegenwirkt. Die verbleibende Übergangszone,
+die den Ladungstransfer verhindert
+wird folglich \emph{Raumladungszone} genannt. 
 
+\begin{center}
+  \includegraphics[width=\textwidth]{1_1/pn2}
+\end{center}
 
 % 1.1
 \subsection{Aufbau und Wirkungsweise einer Diode}
-Die elektrischen Eigenschaften des pn-Übergangs können technisch ausgenutzt werden, um eine \emph{Diode} zu realisieren. Der Stromfluss durch den pn-Übergang ist von der Polarität der über ihn angelegten Spannung abhängig. Man definiert daher die Orientierung der Diode in \emph{Sperr-} und \emph{Durchlassrichtung}.
+
+\begin{center}
+\begin{circuitikz}
+  \draw (0,0) to[Do] (2,0);
+\end{circuitikz}
+\end{center}
+
+\noindent Die elektrischen Eigenschaften des pn-Übergangs können technisch ausgenutzt werden, um eine \emph{Diode} zu realisieren. Der Stromfluss durch den pn-Übergang ist von der Polarität der über ihn angelegten Spannung abhängig. Man definiert daher die Orientierung der Diode in \emph{Sperr-} und \emph{Durchlassrichtung}.
+
+Will man einen Strom durch die Diode treiben, so müssen die Elektronen des
+n-Gebiets bzw. die Fehlstellen des p-Gebiets die Raumladungszone überqueren können.
+Legt man eine negative Spannung über den pn-Übergang/die Diode, das heißt positives Potential an den n- und
+negatives an den p-Leiter, wirkt die Influenz des äußeren elektrischen Feldes
+so, dass sich die Majoritätsladungsträger des jeweiligen Gebiets (Elektronen im n-
+und 'Fehlstellen' im p-Gebiet) von der Raumladungszone entfernen und diese somit
+vergrößern\footnote[1]{Fehlstellen bewegen sich nicht tatsächlich, sondern nur modellhaft.
+Sie stellen die positiv geladenen, \emph{ortsfesten} Atomrümpfe dar, die u.a. durch die
+Elektronenbewegung hinterlassen werden.}. Die Diode nimmt einen statischen Zustand (bezüglich der
+Majoritätsladungsträger) ein und wirkt somit elektrisch isolierend/sperrend. Reale Dioden besitzen allerdings eine
+maximale Sperrspannung, ab welcher sie durchbrechen und ihre
+Sperreigenschaft verlieren.
+
+
+\begin{center}
+  \includegraphics[width=\textwidth]{1_2/diode1}
+\end{center}
+
+Legt man eine (ausreichend) positive Spannung über die Diode, also positives Potential an den
+p- und negatives an den n-Leiter, bewegen sich die Majoritätsladungsträger des
+jeweiligen Bereichs in Richtung der Raumladungszone und verkleinern diese
+dadurch. In dieser Richtung wirkt die Diode elektrisch leitfähig.
+
+\begin{center}
+  \includegraphics[width=\textwidth]{1_2/diode2}
+\end{center}
 
 
 % 1.3
 \subsection{Z- und Schottky-Dioden}
 
+% Z-Dioden
+\begin{center}
+\begin{circuitikz}
+  \draw (0,0) to[Zener diode] (2,0);
+\end{circuitikz}
+\end{center}
+
+Die Z-Diode ist eine besondere Diodenbauform, die kontrolliert im Durchbruchbereich
+arbeiten kann. In Sperrrichtung betrieben arbeitet sie bis zu einer bestimmten
+\emph{Z-Spannung}, ab welcher sie durchbricht und ihre Leitfähigkeit
+exponentiell steigt. Im Durchlassbereich verhält sich die Z-Diode dagegen wie
+eine normale Diode.
+Z-Dioden eignen sich zur Realisierung von Spannungsstabilisierungsschaltungen (1.4).
+
+\holine{\textwidth}
+
+% Schottky-Dioden
+\begin{center}
+\begin{circuitikz}
+  \draw (0,0) to[Schottky diode] (2,0);
+\end{circuitikz}
+\end{center}
+
+Schottky-Dioden haben keinen üblichen Halbleiter-Halbleiter-, sondern einen Metall-Halbleiter-Übergang.
+Charakteristisch sind niedrige Durchlassspanunngen im Bereich von $150 - 450 \si{\milli\volt}$.
+
+
+
 % 1.4
 \subsection{Spannungsstabilisierungsschaltung}
+
+\begin{center}
+\begin{circuitikz}
+  \draw (0, 0) to[V=$U_S$] (0,-3);
+  \draw (0, 0) to[R=$R_V$] (4,0);
+  \draw (4,-3) to[Zener diode, *-*] (4,0);
+  \draw (4,0) to[short] (6,0);
+  \draw (6,0) to[R=$R_L$] (6,-3);
+  \draw (0,-3) to[short] (6,-3);
+\end{circuitikz}
+\end{center}
+
+
 
 % 1.5
 \subsection{Dimensionierung des Vorwiderstands}
