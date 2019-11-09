@@ -130,7 +130,7 @@ Charakteristisch sind niedrige Durchlassspanunngen im Bereich von $150 - 450 \si
 
 \begin{center}
 \begin{circuitikz}
-  \draw (0, 0) to[V=$U_S$] (0,-3);
+  \draw (0, 0) to[V=$U_e$] (0,-3);
   \draw (0, 0) to[R=$R_V$] (4,0);
   \draw (4,-3) to[Zener diode, *-*] (4,0);
   \draw (4,0) to[short] (6,0);
@@ -139,13 +139,30 @@ Charakteristisch sind niedrige Durchlassspanunngen im Bereich von $150 - 450 \si
 \end{circuitikz}
 \end{center}
 
-
-
 % 1.5
 \subsection{Dimensionierung des Vorwiderstands}
 
+\begin{align*}
+  U_{e_{\textrm{min}}} &= 8.5 \,\ \si{\volt}\\
+  U_{e_{\textrm{max}}} &= 12.0 \,\ \si{\volt}\\
+  I_{L_{\textrm{min}}} &= 50 \,\ \si{\milli\ampere}\\
+  I_{L_{\textrm{max}}} &= 130 \,\ \si{\milli\ampere}\\
+  U_{Z} &= 5.6 \,\ \si{\volt}\\
+  I_{Z_{\textrm{min}}}/I_{Z_{\textrm{max}}} &= 20 \,\ \si{\milli\ampere} / 300 \,\ \si{\milli\ampere}\\
+\end{align*}
+
+\begin{gather*}
+  R_{V_{\textrm{min}}} = \frac{}{}\\
+  R_{V_{\textrm{max}}} = \frac{}{}
+\end{gather*}
+
 % 1.6
 \subsection{Diodenkennlinie}
+
+\begin{center}
+  \includegraphics[width=\textwidth]{1_6/diodenkennline}
+\end{center}
+
 
 % 1.7
 \subsection{Diodengrenzwerte}
