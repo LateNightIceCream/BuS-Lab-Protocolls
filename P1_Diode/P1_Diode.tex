@@ -173,18 +173,196 @@ Charakteristisch sind niedrige Durchlassspanunngen im Bereich von $150 - 450 \si
 \section{Versuchsaufgaben}
 
 % 2.1
+
 \subsection{Diodenkennline BY500}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{@{}c|c@{}}
+\toprule
+$U / \si{\volt}$    & $I / \si{\milli\ampere}$     \\ \midrule
+0    & 0     \\
+0.5  & 2.9   \\
+0.6  & 15.8  \\
+0.65 & 34.3  \\
+0.67 & 46.6  \\
+0.69 & 63    \\
+0.7  & 72.2  \\
+0.71 & 84.3  \\
+0.72 & 100.7 \\
+0.73 & 118   \\
+0.8  & 336.4 \\
+0.84 & 650   \\
+0.87 & 1000  \\ \bottomrule
+\end{tabular}
+\end{center}
+\caption{Messwerte der Aufgabe 3.1, Diode in Durchlassrichtung}
+\end{table}
+
+\begin{table}[H]
+  \begin{center}
+\begin{tabular}{@{}c|c@{}}
+\toprule
+$U / \si{\volt}$  & $I / \si{\micro\ampere}$    \\ \midrule
+-0  & -0    \\
+-5  & -0.06 \\
+-10 & -0.07 \\
+-15 & -0.08 \\
+-20 & -0.09 \\
+-25 & -0.1  \\
+-30 & -0.1  \\ \bottomrule
+\end{tabular}
+  \end{center}
+\end{table}
+
+\begin{center}
+ \includegraphics[width=\textwidth]{2_1/2_1_kennlinie}
+\end{center}
 
 % 2.2
 \subsection{Diodenkennline ZY5,6}
 
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{@{}c|c@{}}
+\toprule
+$U / \si{\volt}$     & $I / \si{\milli\ampere}$     \\ \midrule
+0.5   & 0.13  \\
+0.6   & 0.819 \\
+0.65  & 3.06  \\
+0.7   & 14.23 \\
+0.71  & 16.5  \\
+0.72  & 22.22 \\
+0.73  & 32.5  \\
+0.74  & 44.43 \\
+0.75  & 63.6  \\
+0.76  & 134   \\
+0.77  & 166   \\
+0.775 & 194   \\
+0.777 & 237   \\ \bottomrule
+\end{tabular}
+\end{center}
+\caption{Messwerte der Aufgabe 3.2, Z-Diode in Durchlassrichtung}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{@{}c|c@{}}
+\toprule
+$U / \si{\volt}$     & $I / \si{\milli\ampere}$        \\ \midrule
+0     & 0        \\
+-0.5  & -0.0002  \\
+-1    & -0.00096 \\
+-1.5  & -0.0032  \\
+-2    & -0.008   \\
+-2.5  & -0.0178  \\
+-3    & -0.0352  \\
+-3.5  & -0.07    \\
+-4    & -0.124   \\
+-4.5  & -0.252   \\
+-5    & -0.61    \\
+-5.5  & -2.365   \\
+-5.66 & -20      \\
+-5.68 & -37      \\
+-5.75 & -66.7    \\
+-5.82 & -146     \\
+-5.85 & -202     \\
+-5.96 & -297     \\ \bottomrule
+\end{tabular}
+\end{center}
+\caption{Messwerte der Aufgabe 3.2, Z-Diode in Sperrrichtung}
+\end{table}
+
+\begin{center}
+ \includegraphics[width=\textwidth]{2_2/2_2_kennlinie}
+\end{center}
+
+Aus den Messwerten lassen sich die charakteristischen Eigenschaften einer
+Z-Diode gut erkennen.
+
 % 2.3
 \subsection{Z-Spannung und differentieller Widerstand}
+
+Zur Ermittlung des differentiellen Widerstands $r_z$ wurden die letzten beiden
+Wertepaare der Messreihe verwendet, da diese die Linearisierung am besten
+abbilden.
+
+$$ r_z = \frac{\Delta U}{\Delta I} $$
+
+\begin{gather*}
+  U_2 = -5.96 \,\ \si{\volt}\\
+  I_2 = -297 \,\ \si{\milli\ampere}\\
+  U_1 = -5.85 \,\ \si{\volt}\\
+  I_1 = -202 \,\ \si{\milli\ampere}\\
+  r_z = \frac{U_2 - U_1}{I_2-I_1} = \frac{-5.96 - (-5.85)}{-0.297 - (-0.202)}
+  \frac{\si{\volt}}{\si{\ampere}} = 1.158 \,\ \si{\ohm}
+\end{gather*}
+
+Mit dem differentiellen Widerstand konnte dann die Z-Spannung $U_z$ über die Geradengleichung
+
+$$U(I) = I \cdot r_z + U_z$$
+
+\noindent bestimmt werden.
+
+\noindent Nach Einsetzen eines der Wertepaare erhält man:
+$$ U_z = U(I) - I\cdot r_z = -5.96 \si{\volt} - (-0.297 \si{\ampere} \cdot 1.158
+\si{\ohm}) = -5.616 \,\ \si{\volt} $$
+
+\noindent Dieser Wert passt zu der im Datenblatt der Diode angegebenen
+Z-Spannung von $U_{Z_{DB}} = 5.6 \,\ \si{\volt}$.
+
+\holine{\textwidth}
+Mach hier mal noch ne grafik hin
+\holine{\textwidth}
 
 % 2.4
 \subsection{Spannungsstabilisierung bei veränderlicher Eingangsspannung}
 
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{c|c}
+\toprule
+$U_e / \si{\volt} $ & $U_a / \si{\volt}$ \\\midrule
+8.5                                               & 0.772                                             \\
+9                                                 & 0.775                                             \\
+9.5                                               & 0.7768                                            \\
+10                                                & 0.7775                                            \\
+10.5                                              & 0.778                                             \\
+11                                                & 0.7786                                            \\
+11.5                                              & 0.7787                                            \\
+12                                                & 0.7788                 \\\bottomrule 
+\end{tabular}
+\end{center}
+\caption{Messwerte der Aufgabe 3.5}
+\end{table}
+
+$$ \Delta U_a = U_{a_{max}} - U_{a_{min}} = (0.7788 - 0.772) \si{\volt} =
+0.0068 \,\ \si{\volt}$$
+$$ \Delta U_e = U_{e_{max}} - U_{e_{min}} = (12 - 8.5) \si{\volt} = 3.5 \,\ \si{\volt}$$\\
+$$S = \frac{\Delta U_a}{\Delta U_e} = 0.001943 = 0.1943 \,\ \si{\percent}$$
+
 % 2.5
 \subsection{Spannungsstabilisierung bei veränderlichem Laststrom}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{@{}c|c|c@{}}
+\toprule
+$R_L / \si{\ohm}$   & $U_a / \si{\volt}$ & $I_L / \si{\ampere}$                   \\ \midrule
+40  & 5.79    & 0.145              \\
+60  & 5.82    & 0.097                \\
+80  & 5.84    & 0.073                \\
+100 & 5.86    & 0.059 \\
+120 & 5.87    & 0.049 \\ \bottomrule
+\end{tabular}
+\end{center}
+\caption{Messwerte der Aufgabe 3.6}
+\end{table}
+
+Im Versuch wurde der Lastwiderstand durch eine Widerstandsdekade eingestellt.
+Der Laststrom wurde dann durch
+$$ I_L = \frac{R_L}{U_a} $$
+\noindent berechnet.
+
+$$ \Delta U_a = U_{a_{max}} - U_{a_{min}} = (5.87 - 5.79) \si{\volt} = 0.08 \,\
+\si{\volt}$$
 
 \end{document}
