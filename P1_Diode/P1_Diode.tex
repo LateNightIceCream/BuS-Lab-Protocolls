@@ -2,6 +2,7 @@
 
 \input{../preamble}
 
+\setlength\columnsep{0.145898\paperwidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -170,6 +171,7 @@ Charakteristisch sind niedrige Durchlassspanunngen im Bereich von $150 - 450 \si
 
 % 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
 \section{Versuchsaufgaben}
 
 % 2.1
@@ -212,16 +214,24 @@ $U / \si{\volt}$  & $I / \si{\micro\ampere}$    \\ \midrule
 -30 & -0.1  \\ \bottomrule
 \end{tabular}
   \end{center}
+\caption{Messwerte der Aufgabe 3.1, Diode in Sperrrichtung}
 \end{table}
 
 \begin{center}
  \includegraphics[width=\textwidth]{2_1/2_1_kennlinie}
 \end{center}
 
+\begin{center}
+ \includegraphics[width=\textwidth]{2_1/2_1_kennlinie_sperr}
+\end{center}
+
 % 2.2
+\pagebreak
 \subsection{Diodenkennline ZY5,6}
 
-\begin{table}[H]
+\begin{multicols}{2}
+\begin{center}
+  \begin{table}[H]
 \begin{center}
 \begin{tabular}{@{}c|c@{}}
 \toprule
@@ -243,8 +253,9 @@ $U / \si{\volt}$     & $I / \si{\milli\ampere}$     \\ \midrule
 \end{center}
 \caption{Messwerte der Aufgabe 3.2, Z-Diode in Durchlassrichtung}
 \end{table}
+\columnbreak
 
-\begin{table}[H]
+  \begin{table}[H]
 \begin{center}
 \begin{tabular}{@{}c|c@{}}
 \toprule
@@ -271,6 +282,11 @@ $U / \si{\volt}$     & $I / \si{\milli\ampere}$        \\ \midrule
 \end{center}
 \caption{Messwerte der Aufgabe 3.2, Z-Diode in Sperrrichtung}
 \end{table}
+
+\end{center}
+\end{multicols}
+
+
 
 \begin{center}
  \includegraphics[width=\textwidth]{2_2/2_2_kennlinie}
@@ -309,10 +325,9 @@ $$ U_z = U(I) - I\cdot r_z = -5.96 \si{\volt} - (-0.297 \si{\ampere} \cdot 1.158
 
 \noindent Dieser Wert passt zu der im Datenblatt der Diode angegebenen
 Z-Spannung von $U_{Z_{DB}} = 5.6 \,\ \si{\volt}$.
-
-\holine{\textwidth}
-Mach hier mal noch ne grafik hin
-\holine{\textwidth}
+\begin{center}
+ \includegraphics[width=\textwidth]{2_3/2_3_widerstand}
+\end{center}
 
 % 2.4
 \subsection{Spannungsstabilisierung bei veränderlicher Eingangsspannung}
@@ -340,6 +355,11 @@ $$ \Delta U_a = U_{a_{max}} - U_{a_{min}} = (0.7788 - 0.772) \si{\volt} =
 $$ \Delta U_e = U_{e_{max}} - U_{e_{min}} = (12 - 8.5) \si{\volt} = 3.5 \,\ \si{\volt}$$\\
 $$S = \frac{\Delta U_a}{\Delta U_e} = 0.001943 = 0.1943 \,\ \si{\percent}$$
 
+\begin{center}
+ \includegraphics[width=\textwidth]{2_4/2_4_kennlinie}
+\end{center}
+
+
 % 2.5
 \subsection{Spannungsstabilisierung bei veränderlichem Laststrom}
 \begin{table}[H]
@@ -364,5 +384,9 @@ $$ I_L = \frac{R_L}{U_a} $$
 
 $$ \Delta U_a = U_{a_{max}} - U_{a_{min}} = (5.87 - 5.79) \si{\volt} = 0.08 \,\
 \si{\volt}$$
+
+\begin{center}
+ \includegraphics[width=\textwidth]{2_5/2_5}
+\end{center}
 
 \end{document}
