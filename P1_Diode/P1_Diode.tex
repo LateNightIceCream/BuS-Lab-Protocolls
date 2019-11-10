@@ -140,6 +140,27 @@ Charakteristisch sind niedrige Durchlassspanunngen im Bereich von $150 - 450 \si
 \end{circuitikz}
 \end{center}
 
+Die Spannungsstabilisierungsschaltung dient dazu, eine konstante Ausgangsspannung über
+einer Last auch bei schwankender Eingangsspannung ($>=U_Z$) zu gewährleisten.
+Geht man davon aus, dass die Spannung über der Z-Diode nach erreichen der
+Z-Spannung mit steigendem Strom konstant bleibt, so hält die Diode auch durch
+ihre Parallelschaltung mit der Last die Spannung über diese konstant, indem sie
+den Laststrom konstant hält. Mit steigender Eingangsspannung/steigendem
+Eingangsstrom steigt daher der Strom durch die Z-Diode, während der Strom durch
+die Last unverändert bleibt.
+
+Bei Einsatz der Schaltung müssen Vor- und Lastwiderstand so dimensioniert werden, dass der minimale Strom,
+den die Z-Diode benötigt, um ihre Regulationsfunktion zu bieten, und der
+maximale Strom, der aufgrund von Wärmeentwicklung nicht überschritten werden
+darf, eingehalten werden.
+
+Über Messung der Ausgangsspannung und Bezug dieser auf die Eingangsspannung kann
+die Schaltung getestet werden.
+
+Die Spannungsstabilisierungsschaltung ist allerdings gerade bei hohen Strömen nicht besonders effizient,
+da jede in der Last unerwünschte Leistung in der Z-Diode bzw. dem Vorwiderstand
+in Wärme umgesetzt wird.
+
 % 1.5
 \subsection{Dimensionierung des Vorwiderstands}
 
@@ -153,9 +174,16 @@ Charakteristisch sind niedrige Durchlassspanunngen im Bereich von $150 - 450 \si
 \end{align*}
 
 \begin{gather*}
-  R_{V_{\textrm{min}}} = \frac{}{}\\
-  R_{V_{\textrm{max}}} = \frac{}{}
+  R_{V_{\textrm{max}}} = \frac{U_{e_{\textrm{min}}} -
+    U_Z}{I_{Z_{\textrm{min}}}+I_{L_{\textrm{max}}}}=\frac{8.5 \si{\volt} - 5.6
+    \si{\volt}}{20 \si{\milli\ampere} + 130 \si{\milli\ampere}} = 19.33 \,\ \si{\ohm}\\[\smallvert]
+  R_{V_{\textrm{min}}} = \frac{U_{e_{\textrm{max}}} -
+    U_Z}{I_{Z_{\textrm{max}}}+I_{L_{\textrm{min}}}} = \frac{12 \si{\volt} -
+    5.6\si{\volt}}{300 \si{\milli\ampere} + 50 \si{\milli\ampere}} = 18.29 \,\
+  \si{\ohm}
 \end{gather*}
+
+$\rightarrow$ z.B. ein $18.7 \,\ \si{\ohm}$ Widerstand aus der E48-Reihe.
 
 % 1.6
 \subsection{Diodenkennlinie}
@@ -168,10 +196,27 @@ Charakteristisch sind niedrige Durchlassspanunngen im Bereich von $150 - 450 \si
 % 1.7
 \subsection{Diodengrenzwerte}
 
+Der Strom, der durch die Diode fließt und die Spannung, die über der Diode
+anliegt ergeben im Produkt die Leistung, die die Diode in (z.B.) Wärme umsetzt.
+Überschreitet die Leistung einen Grenzwert, kann es zur Überhitzung und u.U.
+Zerstörung der Diode kommen. Grafisch kann man dies durch den Schnittpunkt der
+Diodenkennlinie mit einer
+\emph{Verlustleistungshyperbel} darstellen, welche alle Wertepaare von Strom und
+Spannung abbildet, die die maximale Verlustleistung der Diode bilden.
+
+Wie in 1.2 bereits erwähnt, sperren Dioden nicht bis zu beliebigen Spannungen
+sondern brechen bei einer maximalen Sperrspannung durch, wodurch weiteres
+Sperren verhindert wird.
+
 
 % 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
+\includepdf{./titlepage/titlepage2.pdf}
+  \clearpage
+\setcounter{page}{1}
+
+\setcounter{section}{0}
 \section{Versuchsaufgaben}
 
 % 2.1
@@ -299,7 +344,7 @@ Z-Diode gut erkennen.
 \subsection{Z-Spannung und differentieller Widerstand}
 
 Zur Ermittlung des differentiellen Widerstands $r_z$ wurden die letzten beiden
-Wertepaare der Messreihe verwendet, da diese die Linearisierung am besten
+Wertepaare der Messreihe verwendet, da diese die Linearisierung (theoretisch) am besten
 abbilden.
 
 $$ r_z = \frac{\Delta U}{\Delta I} $$
