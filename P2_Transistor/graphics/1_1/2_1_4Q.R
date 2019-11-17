@@ -119,9 +119,9 @@ plot <- ggplot( data.frame(x=c(0, 2)), aes(x) ) +
 
     annotate("text", label = bquote("U"["BE"]~"/V"), x = min(xlimits)-overshoot, y = min(ylimits)/2, size = axisLabelSize) +
 
-    annotate("text", label = bquote("U"["CE"]), x = max(xlimits)/2, y = min(ylimits) - overshoot, size = axisLabelSize) +
+    annotate("text", label = bquote("U"["CE"]~"/V"), x = max(xlimits)/2, y = min(ylimits) - overshoot, size = axisLabelSize) +
 
-   annotate("text", label = bquote("I"["C"]), x = min(xlimits)-overshoot, y = max(ylimits)/2, size = axisLabelSize) +
+   annotate("text", label = bquote("I"["C"]~"/A"), x = min(xlimits)-overshoot, y = max(ylimits)/2, size = axisLabelSize) +
 
     stat_function (fun = base_voltage, n = 10000, color = IB_color, size=function_size) +
 
