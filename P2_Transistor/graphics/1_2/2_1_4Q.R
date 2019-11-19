@@ -58,10 +58,16 @@ forward_active <- function(UCE, IB) {
 
     xshift <- exp(log(Usat)-early(Usat, IB))
 
+    ifelse(UCE < 4,
+
     ifelse(UCE > Usat,
            early(UCE, IB),
 
            ifelse(UCE>5000*IB*xshift, log(UCE+xshift) - log(Usat+xshift) + early(Usat, IB), NaN)
+   ),
+
+   NaN
+
    )
 
 }
@@ -123,6 +129,8 @@ plot <- ggplot( data.frame(x=c(0, 2)), aes(x) ) +
 
    annotate("text", label = bquote("I"["C"]~"/A"), x = min(xlimits)-overshoot, y = max(ylimits)/2, size = axisLabelSize) +
 
+    stat_function (fun = forward_active, args = c(IB3 * 1.25), n = 10000, color = axis_color, size=function_size, linetype = "dashed") +
+
     stat_function (fun = base_voltage, n = 10000, color = IB_color, size=function_size) +
 
 stat_function (fun = forward_active, args = c(IB3), n = 10000, color = IC_color, size=function_size) +
@@ -131,7 +139,15 @@ stat_function (fun = forward_active, args = c(IB2), n = 10000, color = IC_color,
 
 stat_function (fun = forward_active, args = c(IB1), n = 10000, color = IC_color, size=function_size)+
 
-stat_function (fun = amplification, n = 10000, color = amp_color, size=function_size)
+    stat_function (fun = amplification, n = 10000, color = amp_color, size=function_size) +
+
+    geom_segment(aes(x = 4.5, y = 1, xend = 4.5, yend = 3), linetype="solid" ,arrow=arrow(length=unit(0.38, "cm")), color = IC_color) + annotate("text", x = 4.6, y = 2, label=bquote("I"["B"]), color = IC_color) +
+ # quadrant annotations
+    annotate("text", color = IC_color, x = 2, y = 4, label="I", size = 8)+
+    annotate("text", color = amp_color, x = -2, y = 4, label="II", size = 8)+
+    annotate("text", color = IB_color,  x = -2, y = -4, label="III", size = 8)+
+    annotate("text", color = axis_color, x = 2, y = -4, label="IV", size = 8)
+
 
 pdf(outputName, width = pdfWidth, height = pdfHeight)
 plot
