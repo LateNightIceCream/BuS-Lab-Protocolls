@@ -121,13 +121,13 @@ plot <- ggplot( data.frame(x=c(0, 2)), aes(x) ) +
     geom_segment(aes(x = min(xlimits) + 0.001, y = 0, xend = min(xlimits)-0.001, yend = 0), color = axis_color, arrow = arrow(length = unit(0.38, "cm")) ) +
 
     # axis labels
-    annotate("text", label = bquote("I"["B"]~"/µA"), x = min(xlimits)/2, y = min(ylimits) - overshoot, size = axisLabelSize) +
+    annotate("text", color="grey70", label = bquote("I"["B"]~"/µA"), x = min(xlimits)/2, y = min(ylimits) - overshoot, size = axisLabelSize) +
 
-    annotate("text", label = bquote("U"["BE"]~"/V"), x = min(xlimits)-overshoot, y = min(ylimits)/2, size = axisLabelSize) +
+    annotate("text", color="grey70", label = bquote("U"["BE"]~"/V"), x = min(xlimits)-overshoot, y = min(ylimits)/2, size = axisLabelSize) +
 
-    annotate("text", label = bquote("U"["CE"]~"/V"), x = max(xlimits)/2, y = min(ylimits) - overshoot, size = axisLabelSize) +
+    annotate("text", color="grey70", label = bquote("U"["CE"]~"/V"), x = max(xlimits)/2, y = min(ylimits) - overshoot, size = axisLabelSize) +
 
-   annotate("text", label = bquote("I"["C"]~"/A"), x = min(xlimits)-overshoot, y = max(ylimits)/2, size = axisLabelSize) +
+   annotate("text", color="grey70", label = bquote("I"["C"]~"/A"), x = min(xlimits)-overshoot, y = max(ylimits)/2, size = axisLabelSize) +
 
     stat_function (fun = forward_active, args = c(IB3 * 1.25), n = 10000, color = axis_color, size=function_size, linetype = "dashed") +
 
