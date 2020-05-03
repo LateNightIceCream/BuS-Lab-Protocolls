@@ -25,6 +25,7 @@ Kurzschlüsse behandelt.
 \[r_a = \frac{U_a}{I_a} = r_0 // R_3 \]
 \noindent Spannungsverstärkung:
 \[V_u = \frac{U_2}{U_1}\]
+
 \begin{gather*}
   U_2 = g_m \cdot u_{BE} \cdot (r_0 // R_3) = g_m \cdot U_1 \cdot (r_0 // R_3)\\
   V_u = g_m \cdot (r_0 // R_3)
@@ -62,11 +63,17 @@ Kurzschlüsse behandelt.
 \end{figure}
 \noindent Eingangswiderstand
 \[ r_e = \frac{U_1}{I_1}\]
+\[ r_e = R_1 // R_2 // (r_\pi + \beta_N R_3)\]
 
 \noindent Ausgangswiderstand
+\[ r_a = \frac{U_2}{I_2}|_{U_1 = 0}\]
+\[U_2 = U_{BE}\]
+\[r_a = R_3 // \frac{r_\pi }{\beta_N + 1}\]
+\[r_a \approx \frac{1}{g_m}\]
+
 \noindent Spannungsverstärkung
-\noindent Stromverstärkung
-\noindent Leistungsverstärkung
+\[ V_u = \frac{U_2}{U_1}\]
+\[V_u = \frac{1}{1+ \dfrac{1}{g_m \cdot R_3}} \approx 1\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Basisschaltung}
@@ -107,6 +114,3 @@ Kurzschlüsse behandelt.
 \[U_2 = -g_m \cdot U_{BE} (R_3 // r_0)\]
 \[U_{BE} = - U_{1}\]
 \[ \frac{U_2}{U_1} = V_u = g_m (R_3 // r_0)\]
-\noindent Stromverstärkung
-
-\noindent Leistungsverstärkung
