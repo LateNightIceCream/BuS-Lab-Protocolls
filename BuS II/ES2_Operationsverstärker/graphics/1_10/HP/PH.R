@@ -10,7 +10,7 @@ outputName <- "PH.pdf"
 
 
 phase <- function(f) {
-    -atan(1/(f*0.00001))*180/pi
+    atan(1/(f*0.00001))*180/pi
 }
 
 xbreaks <- 10^(0:10)
@@ -25,7 +25,7 @@ cutoffPoint <- data.frame(fg = fg, db=-3)
 ylabel <- bquote(phi~"("~omega~") in "~degree)
 xlabel <- "f in Hz"
 
-ybreaks <- c(0, -45, -90)
+ybreaks <- c(90, 45, 0)
 
 p <- ggplot(data=data.frame(x=c(1,10^10)), aes(x=x)) +
     theme_minimal() +
