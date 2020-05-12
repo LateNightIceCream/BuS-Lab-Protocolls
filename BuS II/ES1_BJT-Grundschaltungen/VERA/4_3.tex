@@ -4,13 +4,14 @@ Eingangsspannung von $U_{\mathrm{RMS}} = 5 \, \si{\milli\volt}$ und einer
 Frequenz von $f_e = 1 \, \si{\kilo\hertz}$ bestimmt. Der Lastwiderstand wurde
 von $100 \, \si{\kilo\ohm}$ bis $1 \, \si{\kilo\ohm}$ variiert. Die
 Spannungsverstärkungen bei den jeweiligen Lastwiderstandswerten ist dann
-derQuotient aus Ausgangs- und Eingangsspannung. Die Spannungswerte wurden
+der Quotient aus Ausgangs- und Eingangsspannung. Die Spannungswerte wurden
 als RMS-Werte am Oszilloskop gemessen. Der interne Lastwiderstand beträgt $R_{\mathrm{L,intern}} =
 100 \, \si{\kilo\ohm}$.
 
 \begin{table}[H]
   \begin{center}
     \begin{tabular}{|c|c|c|c|}
+      \hline
       $U_e / \si{\milli\volt}$ & $U_a / \si{\milli\volt}$ & $R_{\mathrm{L,gesamt}} / \si{\kilo\ohm}$ & $V_u$\\
       \hline
       \hline
@@ -18,7 +19,7 @@ als RMS-Werte am Oszilloskop gemessen. Der interne Lastwiderstand beträgt $R_{\
       4.99 & 810.96 & 100 & 162.5\\
       4.97 & 790.5 & 33.33 & 159.1\\
       4.98 & 721.6 & 9.09 & 144.90\\
-      4.97 & 363,9 & 0.99 & 73.22\\
+      4.97 & 363.9 & 0.99 & 73.22\\
       \hline
     \end{tabular}
 
@@ -39,7 +40,7 @@ als RMS-Werte am Oszilloskop gemessen. Der interne Lastwiderstand beträgt $R_{\
 Der Anstieg des Graphen entspricht der Steilheit $g_m$ des Transistors. Die
 Steilheit im Arbeitspunkt ist etwa
 \[g_m = \frac{I_C}{U_T} = \frac{4.33 \, \si{\milli\ampere}}{26 \,
-    \si{\milli\volt}} = 188.26 \, \si{\milli\siemens}\]
+    \si{\milli\volt}} = 166.53 \, \si{\milli\siemens}\]
 
 Der theoretische Zusammenhang ist
 \[V_u = - g_m \cdot R_L \] 
@@ -87,19 +88,47 @@ und einer Frequenz von $1 \, \si{\kilo\hertz}$ bestimmt.
 Der dabei ermittelte Eingangswiderstand ist
 \[r_e = 800 \, \si{\ohm}\]
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.618\textwidth]{inputimp}
+  \end{center}
+  \caption{Quelle: http://onsemi.com}
+\end{figure}
+
+Aus dem Transistordatenblatt Abb. 13 ist bei einem Kollektorstrom von $I_C = 4.33 \,
+\si{\milli\ampere}$ ein $r_\pi$ von etwa $1 \, \si{\kilo\ohm}$ ablesbar. Der
+theoretische Eingangswiderstand der Emitterschaltung ist
+\[r_{e,\mathrm{theoretisch}} = R_1 // R_2 // r_\pi \approx 820 \,\si{\ohm}\]
+
+Der messtechnisch ermittelte Wert stimmt also ziemlich genau mit dem
+theoretischen überein. Mögliche Abweichungen entstehen durch ungenaue
+Widerstandswerte, Messabweichungen/Fehlerfortpflanzung und ungenaues Ablesen von
+Werten aus Datenblattkurven.
+
 \subsubsection{Ausgangswiderstand}
 Der Ausgangswiderstand bestimmt sich über die umgestellte Spannungsteilerformel
 am Ausgangskreis. $U_{a0}$ ist die Leerlaufspannung, ohne Belastung. $U_{a1}$
-die Ausgangsspannung bei Belastung mit $R_L$.
+die Ausgangsspannung bei Belastung mit dem externen Widerstand $R_L = 10 \, \si{\kilo\ohm}$.
 \[U_{a1} = U_{a0} \cdot \frac{R_L}{r_a + R_L}\]
 \[r_a = R_L \left( \frac{U_{a0}}{U_{a1}} -1 \right)\]
 
 \[U_{a0} = 821.45 \, \si{\milli\volt}\]
 \[U_{a1} = 731.50 \, \si{\milli\volt}\]
 
-\[r_a = 100 \, \si{\kilo\ohm} \left( \frac{ \, \si{\milli\volt}}{\,
-      \si{\milli\volt}} -1 \right) = \, \si{\kilo\ohm}\]
+\[r_a = 10 \, \si{\kilo\ohm} \left( 821.45 \frac{ \, \si{\milli\volt}}{731.50 \,
+      \si{\milli\volt}} -1 \right) = 1.2297 \, \si{\kilo\ohm}\]
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.618\textwidth]{outadmittance}
+  \end{center}
+  \caption{Quelle: http://onsemi.com}
+\end{figure}
+
+Der theoretische Ausgangswiderstandswert ergibt sich mit den Datenblattwerten zu
+\[r_a = R_3 // R_L // r_0 = 1.3 \, \si{\kilo\ohm} // 100 \, \si{\kilo\ohm}// \, 33.33 \si{\kilo\ohm} \approx 1.236 \, \si{\kilo\ohm}\]
+
+Der messtechnisch ermittelte Wert stimmt erneut gut mit dem theoretischen überein.
 
 \subsubsection{Amplituden-Frequenzgang}
 Der Amplituden-Frequenzgang wurde durch das Durchlaufen der
@@ -115,7 +144,7 @@ der Ausgangsspannungswerte (RMS) bei einer Eingangsspannung von $U_e =
 \end{figure}
 
 Die durch Regression ermittelte Grenzfrequenz ist
-\[f_g = 500 \, \si{\hertz}\]
+\[f_g \approx 300 \, \si{\hertz}\]
 
 Vor der Grenzfrequenz steigt die Verstärkung mit etwa $25 \, \si{\deci\bel}$ pro
 Dekade. Weit hinter der Grenzfrequenz nimmt sie den entsprechenden Wert aus
@@ -125,4 +154,35 @@ $C_E$ ($C_3$) stellt wechselstromseitig einen Kurzschluss dar, wodurch der
 Emitterwiderstand diesbezüglich wegfällt und die Verstärkung für 
 Wechselspannungen deren Frequenz hoch genug ist nicht beeinflusst. Bei
 niedrigeren Frequenzen ist die Reaktanz des Kondensators jedoch nicht
-ausreichend gering, um den Einfluss von $R_E$ vollständig zu beseitigen.
+ausreichend gering, um den Einfluss von $R_E$ vollständig zu beseitigen, weshalb
+die Verstärkung in diesem Fall sinkt.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{@{}cc@{}}
+\toprule
+$f / \, \si{\hertz}$ & $u_\mathrm{a} / \, \si{\milli\volt}$ \\ \midrule
+  \midrule
+100                  & 303.7                       \\
+200                  & 497.8                       \\
+300                  & 616.8                       \\
+400                  & 690.3                       \\
+500                  & 736.5                       \\
+600                  & 766.7                       \\
+700                  & 787.9                       \\
+800                  & 801.5                       \\
+900                  & 812.38                      \\
+1000                 & 820.96                      \\
+2000                 & 854.3                       \\
+3000                 & 862                         \\
+4000                 & 865.7                       \\
+5000                 & 867.5                       \\
+6000                 & 868.6                       \\
+7000                 & 869.6                       \\
+8000                 & 870                         \\
+9000                 & 870                         \\
+10000                & 876                         \\ \bottomrule
+\end{tabular}
+\end{center}
+\caption{Messwerte des Frequenzganges}
+\end{table}

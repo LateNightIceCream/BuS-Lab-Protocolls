@@ -92,10 +92,10 @@ xlabels <- c(100, 75, 50, 25, 0, 1, 2, 3, 4)
 
 function_size <- 1
 
-axis_color <- "grey70"
-IB_color   <- "#00B0F6"
-IC_color   <- "#B983FF"
-amp_color  <- "#00C0AF"
+axis_color <- "#e9ecef"
+IB_color   <- "#339af0"
+IC_color   <- "#cc5de8"
+amp_color  <- "#20c997"
 
 
 plot <- ggplot( data.frame(x=c(0, 2)), aes(x) ) +

@@ -11,7 +11,7 @@ data <- read.csv("ESIGK1_fg.csv")
 
 v <- data$ua/data$ue
 
-data <- data.frame(f = data$f, v = v, vdb = 20 * log(v))
+data <- data.frame(f = data$f, v = v, vdb = 20 * log10(v))
 
 hypFunDB <- vdb ~ K+L/(sqrt(1+1/(2*pi*M*f)^2))
 hypDB.model <- fitModel(hypFunDB, data=data, start=c(K=60, L=20, M=0.00005))
@@ -20,7 +20,7 @@ hypDB.model <- fitModel(hypFunDB, data=data, start=c(K=60, L=20, M=0.00005))
 find3db <- function() {
 
     N <- 3000
-    zerodb <- 103.18
+    zerodb <- 45
 
     sampledataf <- c()
     sampledatav <- c()
