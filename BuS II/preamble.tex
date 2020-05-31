@@ -26,21 +26,21 @@
 \usepackage{listings}
 \usepackage{ragged2e}
 \usepackage{tabularx}
+\usepackage{color, colortbl}
+\usepackage{textcomp}
 
 \usepackage{fontspec}
 \usepackage{tgheros}
 \usepackage{tgcursor}
-
-%\usepackage{sansmath}
-%\sansmath
+\usepackage{lmodern}
 
 %%% DOCUMENT GEOMETRY
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{geometry}
+\usepackage[]{geometry}
 \geometry{
  a4paper,
- total={0.6180339887498948\paperwidth,0.6180339887498948\paperheight},
+ total={0.618\paperwidth,0.6180339887498948\paperheight},
  top = 0.1458980337503154\paperheight,
  bottom = 0.1458980337503154\paperheight
  }
@@ -52,7 +52,7 @@
 %%% FONTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\setmainfont{TeX Gyre Heros}
+%\setmainfont{Latin Modern D}
 %\setmonofont{Inconsolatazi4}
 
 %%% COLORS
@@ -155,6 +155,12 @@
 \newtcbox{\inlinebox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0pt,top=0.062em,bottom=0.062em,
   right=0.382em,left=0.382em,arc=0.382em,boxsep=0.1em,before upper={\vphantom{dlg}},
   colframe=white,colback=gray0}
+
+\usepackage[%  
+    colorlinks=true,
+    pdfborder={0 0 0},
+    linkcolor=gray6
+]{hyperref}
 
 
 % END OF PREAMBLE
