@@ -1,7 +1,3 @@
-Der Lastwiderstand am Gatterausgang wurde bei HIGH-Pegel mit einer
-Widerstandsdekade verändert. Dadurch konnte die Ausgangs-HIGH-Spannung des
-Gatters bei Variation des Ausgangs-HIGH-Stromes ermittelt werden.
-
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=\textwidth]{VERA/SN7400/SN7400_Ausgangskennlinie_high}
@@ -11,12 +7,23 @@ Gatters bei Variation des Ausgangs-HIGH-Stromes ermittelt werden.
   \label{fig:aus_schnib_high}
 \end{figure}
 
+Der Lastwiderstand am Gatterausgang wurde bei HIGH-Pegel mit einer
+Widerstandsdekade verändert. Dadurch konnte die Ausgangs-HIGH-Spannung des
+Gatters bei Variation des Ausgangs-HIGH-Stromes ermittelt werden.
+
 
 Auch hier
 ergibt sich ein recht linearer Zusammenhang zwischen Strom und Spannung, welcher
 in einer Änderungsrate von etwa $- 96.64 \, \si{\milli\volt}$ Ausgangsspannung
 je $1 \, \si{\milli\ampere}$ Ausgangsstrom resultiert (betragsmäßig), was einem
-statischen Widerstand von $96.64 \, \Omega$ ($U_\mathrm{a,HIGH}(0) = 3.6926 \, \si{\volt}$) entspricht (Abb. \ref{fig:aus_schnib_high}).
+statischen Widerstand von $96.64 \, \Omega$ ($U_\mathrm{a,HIGH}(0) = 3.6926 \,
+\si{\volt}$) entspricht (Abb. \ref{fig:aus_schnib_high}).
+
+Man kann sehen, dass bei einem Strom von etwa $-16
+\,\si{\milli\ampere}$ die TTL-Schwelle für die genaue Erkennung des
+Ausgangsspannungspegels als HIGH unterschritten wird und der Pegel mit
+steigendem Ausgangsstrom immer weiter in den undefinierten Bereich fällt, inn welchem
+keine zuverlässige Funktion folgender Gatter gewährleistet werden kann.
 
 \begin{table}[h]
     \centering
